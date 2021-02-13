@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#222222">
+    <meta name="description" content="Tzingtao Chow's personal website.">
+    <meta name="description" content="Note: this article is an excerpt from the final report of Project Placename Insights, a study on typonymy. Below is a conclusive analysis of the visualization section.    General ObservationsPlace n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When We Visualize City Names">
+<meta property="og:url" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/index.html">
+<meta property="og:site_name" content="Ekki Múkk">
+<meta property="og:description" content="Note: this article is an excerpt from the final report of Project Placename Insights, a study on typonymy. Below is a conclusive analysis of the visualization section.    General ObservationsPlace n">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-0.jpg">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-1.jpg">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-2.jpg">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-3.jpg">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-4.png">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-5.jpg">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-6.jpg">
+<meta property="og:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-7.jpg">
+<meta property="article:published_time" content="2019-06-16T05:12:19.000Z">
+<meta property="article:modified_time" content="2021-02-13T08:11:25.500Z">
+<meta property="article:author" content="Tzingtao Chow">
+<meta property="article:tag" content="Vis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.tzingtao.com/2019/06/16/Placename-Insights/9-0.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-192x192.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>When We Visualize City Names</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+
+<!-- jquery -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/global-fade-in.js" async></script>
+<body onload="document.body.style.opacity='1'" id="body" class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" style="display:none" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writings</a></li>
+         
+          <li><a href="/portfolio/">Portfolio</a></li>
+         
+          <li><a href="/elsewhere/">Elsewhere</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions" style="display:none">
+      <ul>
+        
+        <li><a class="icon" href="/2019/06/21/Math-Equations-in-Hexo/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/05/30/CSS-Pseudo-and-Touch-Devices/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.tzingtao.com/2019/06/16/Placename-Insights/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&text=When We Visualize City Names"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&title=When We Visualize City Names"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&is_video=false&description=When We Visualize City Names"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=When We Visualize City Names&body=Check out this article: http://www.tzingtao.com/2019/06/16/Placename-Insights/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&title=When We Visualize City Names"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&title=When We Visualize City Names"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&title=When We Visualize City Names"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&title=When We Visualize City Names"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.tzingtao.com/2019/06/16/Placename-Insights/&name=When We Visualize City Names&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Observations"><span class="toc-number">1.</span> <span class="toc-text">General Observations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visualizing-Place-Names-in-the-World"><span class="toc-number">2.</span> <span class="toc-text">Visualizing Place Names in the World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Population"><span class="toc-number">2.1.</span> <span class="toc-text">Population</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cities-with-Longer-Words"><span class="toc-number">2.2.</span> <span class="toc-text">Cities with Longer Words</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cities-with-More-Words"><span class="toc-number">2.3.</span> <span class="toc-text">Cities with More Words</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cities-with-a-Higher-Vowel-Consonant-Ratio"><span class="toc-number">2.4.</span> <span class="toc-text">Cities with a Higher Vowel-Consonant Ratio</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experimenting-with-Placenames-in-China"><span class="toc-number">3.</span> <span class="toc-text">Experimenting with Placenames in China</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Zhongyuan-Markets"><span class="toc-number">3.1.</span> <span class="toc-text">Zhongyuan Markets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mountains-and-Plains"><span class="toc-number">3.2.</span> <span class="toc-text">Mountains and Plains</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lakes-in-the-South"><span class="toc-number">3.3.</span> <span class="toc-text">Lakes in the South</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tibetan-and-Minnan-Dialect"><span class="toc-number">3.4.</span> <span class="toc-text">Tibetan and Minnan Dialect</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-of-Clusters"><span class="toc-number">4.</span> <span class="toc-text">Summary of Clusters</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle hugo-h4" itemprop="name headline">
+        When We Visualize City Names
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tzingtao Chow</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-06-16T05:12:19.000Z" itemprop="datePublished">2019-06-16</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Vis/" rel="tag">Vis</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <div class="article-note">
+
+<p>Note: this article is an excerpt from the final report of <a target="_blank" rel="noopener" href="https://github.com/Cyphexl/placename-insights">Project Placename Insights</a>, a study on typonymy. Below is a conclusive analysis of the visualization section.</p>
+</div>
+
+
+<h2 id="General-Observations"><a href="#General-Observations" class="headerlink" title="General Observations"></a>General Observations</h2><p>Place names around the world have a subtle and close relationship with their location. This is usually because different regions have different languages and writing systems, hence the different spelling patterns.</p>
+<p>Characteristics of place names differ due to geographic location changes. To a certain extent, the changes are both continuous and discrete. They are continuous because place names are similar in neighboring regions. For instance, throughout the Europe continent, the proportion of consonants in their spelling rises from the Mediterranean to the north. Another example, inside China, the unified country, the place names in the northwest are more “Arabic” than those in the east.</p>
+<figure>
+    <img src="/2019/06/16/Placename-Insights/9-0.jpg" class="">
+    <figcaption>
+    Figure 9-0. Continuous. The proportion of consonants throughout the Europe continent.
+    </figcaption>
+</figure>
+
+<p>The discrete character of place names, on the other hand, is usually caused by geographical barriers, political boundaries, and cultural divisions. For example, in Spain and Argentina, two countries that locate vastly different, have similar place names because of historical colonial activities. Like the border between China and Vietnam, they share similar cultures. However, the official language on one side is In Chinese, while Vietnamese is used on the other side - the two writing systems, therefore, have different Latin transcription standards, resulting in the latter’s place names usually being split into many relatively short words. This “discrete” character is caused by political reasons.</p>
+<figure>
+    <img src="/2019/06/16/Placename-Insights/9-1.jpg" class="">
+    <figcaption>
+    Figure 9-1. Discrete. The difference in place names caused by different transliteration systems.
+    </figcaption>
+</figure>
+
+<p>Some geographical regions have a quite distinct place name patterns. For instance, in East Europe, especially Russia, place names are usually constructed by a single long word, which makes them relatively easier to be recognized. Some Slavic suffixes like “-sk” are commonly seen here. Some geographical areas, such as sub-Saharan Africa and Oceania island countries, the culture and languages are so diverse there, causing the place names are much more challenging to identify.</p>
+<h2 id="Visualizing-Place-Names-in-the-World"><a href="#Visualizing-Place-Names-in-the-World" class="headerlink" title="Visualizing Place Names in the World"></a>Visualizing Place Names in the World</h2><h3 id="Population"><a href="#Population" class="headerlink" title="Population"></a>Population</h3><figure>
+    <img src="/2019/06/16/Placename-Insights/9-2.jpg" class="">
+    <figcaption>
+    Figure 9-2. All cities with a population of greater than 500.
+    </figcaption>
+</figure>
+
+<p>The figure above shows all cities with a population more than 500 (total ~180,000 cities) scattered onto a dark background, with each point represents a city. This figure gives a sense of where geographic information is densely aggregated or recorded and where there are not. It seems that the western European area holds the most densely distributed populated cities. Other populated area includes the USA, Central America, and Southeast China.</p>
+<h3 id="Cities-with-Longer-Words"><a href="#Cities-with-Longer-Words" class="headerlink" title="Cities with Longer Words"></a>Cities with Longer Words</h3><figure>
+    <img src="/2019/06/16/Placename-Insights/9-3.jpg" class="">
+    <figcaption>
+    Figure 9-3. Cities with longer words.
+    </figcaption>
+</figure>
+
+<p>Cities are represented with different colors on this map, and to avoid interfering mixed colors, color <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Blend_modes">blend mode</a> was set to Normal, i.e., no blending. In this figure, blue dot means a city that has short words in its name (e.g., Ho Chi Minh City), and yellow dot indicates long words (e.g., Vladivostok).</p>
+<p>To design a proper <code>words_length -&gt; color</code> projection function, we firstly investigated the distribution of word lengths. The median word length is around six letters, with a minimum of 1 letter and a maximum of over 20 letters. This character is like a normal distribution with <em>skewed</em> (or imbalanced) two sides. <em>Log-normal distribution</em>, in this case, fits the model.</p>
+<figure>
+    <img src="/2019/06/16/Placename-Insights/9-4.png" class="">
+    <figcaption>
+    Figure 9-4. The PDF of the distribution model used in mapping word length to colors.
+    </figcaption>
+</figure>
+
+<p>Above is its PDF (Probability Density Function) plotted. To transform the distribution into a color projection function, we need its CDF (Cumulative Distribution Function) expressions:</p>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mi>C</mi><mi>D</mi><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>μ</mi><mo separator="true">,</mo><mi>σ</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">erf</mi><mo>⁡</mo><mo fence="false">[</mo><mfrac><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>μ</mi></mrow><mrow><msqrt><mn>2</mn></msqrt><mi>σ</mi></mrow></mfrac><mo fence="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle CDF(x, \mu, \sigma) = \frac12 + \frac12\operatorname{erf}\Big[\frac{\ln x-\mu}{\sqrt{2}\sigma}\Big]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">μ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord">2</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord">1</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.30144em;vertical-align:-0.93em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord">2</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord">1</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="delimsizing size2">[</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.2027799999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.90722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">2</span></span></span><span style="top:-2.86722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.13278em;"><span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">ln</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">μ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="delimsizing size2">]</span></span></span></span></span>
+
+<p>The corresponding part of the code is implemented as below:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">erf</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">let</span> m = <span class="number">1.00</span>;</span><br><span class="line">     <span class="keyword">let</span> s = <span class="number">1.00</span>;</span><br><span class="line">     <span class="keyword">let</span> sum = x * <span class="number">1.0</span>;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">         m *= i;</span><br><span class="line">         s *= -<span class="number">1</span>;</span><br><span class="line">         sum += (s * <span class="built_in">Math</span>.pow(x, <span class="number">2.0</span> * i + <span class="number">1.0</span>)) / (m * (<span class="number">2.0</span> * i + <span class="number">1.0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">2</span> * sum / <span class="built_in">Math</span>.sqrt(PI);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">logNormalCDF</span>(<span class="params">x, mu, sigma</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">let</span> par = (<span class="built_in">Math</span>.log(x) - mu) / (<span class="built_in">Math</span>.sqrt(<span class="number">2</span>) * sigma)</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0.5</span> + <span class="number">0.5</span> * erf(par)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">const</span> projectColor = <span class="function">(<span class="params">x</span>) =&gt;</span> <span class="built_in">Math</span>.round(logNormalCDF(x/<span class="number">5</span>, <span class="number">0</span>, <span class="number">1</span>)*<span class="number">255</span>)</span><br></pre></td></tr></table></figure>
+<p>The result color is concatenated from strings:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.fillStyle = <span class="string">`rgb(<span class="subst">$&#123;projectColor(wordLength)&#125;</span>, <span class="subst">$&#123;projectColor(wordLength)&#125;</span>, <span class="subst">$&#123;<span class="number">255</span> - projectColor(wordLength)&#125;</span>)`</span></span><br></pre></td></tr></table></figure>
+<h3 id="Cities-with-More-Words"><a href="#Cities-with-More-Words" class="headerlink" title="Cities with More Words"></a>Cities with More Words</h3><figure>
+    <img src="/2019/06/16/Placename-Insights/9-5.jpg" class="">
+    <figcaption>
+    Figure 9-5. Cities with more words.
+    </figcaption>
+</figure>
+
+<p>The idea behind this image is similar to the previous plot, whereas a red dot indicates a city name that consists of many words, and a green dot indicates the contrary.</p>
+<h3 id="Cities-with-a-Higher-Vowel-Consonant-Ratio"><a href="#Cities-with-a-Higher-Vowel-Consonant-Ratio" class="headerlink" title="Cities with a Higher Vowel-Consonant Ratio"></a>Cities with a Higher Vowel-Consonant Ratio</h3><figure>
+    <img src="/2019/06/16/Placename-Insights/9-6.jpg" class="">
+    <figcaption>
+    Figure 9-6. An experiment with vowel-consonant ratio.
+    </figcaption>
+</figure>
+
+<p>We experimented with the vowel-consonant ratio on this map. Vowels only include five Latin letters, and all other letters are consonants. So more vowels in a word are likely to make the pronunciation softer, e.g., “Ieyouia.” A word with a lower vowel-consonant ratio, which means more consonants in their spelling, e.g., “Pszykt,” usually sounds hard. We can observe the general pattern that a place having a higher latitude usually have a hard-sounding name. Certain countries, such as Japan and Nigeria, have a particularly high vowel-consonant ratio.</p>
+<h2 id="Experimenting-with-Placenames-in-China"><a href="#Experimenting-with-Placenames-in-China" class="headerlink" title="Experimenting with Placenames in China"></a>Experimenting with Placenames in China</h2><figure>
+    <img src="/2019/06/16/Placename-Insights/9-7.jpg" class="">
+    <figcaption>
+    Figure 9-7. Filtering certain patterns in Chinese place names.
+    </figcaption>
+</figure>
+
+<p>In addition to the regular steps in machine learning and statistics, we tried to find out whether specific “patterns” in place names exist. We limited the area of research to Mainland China for the Chinese language we’re both familiar with. We used regular expressions to filter the points in the scatter plot and found out for some specific words or characters, the place names containing them tend to aggregate within a particular area, or show interesting distribution patterns.</p>
+<h3 id="Zhongyuan-Markets"><a href="#Zhongyuan-Markets" class="headerlink" title="Zhongyuan Markets"></a>Zhongyuan Markets</h3><p>“Dian(店)” means “market” in Mandarin Chinese. This is a word that appears only in the Zhongyuan Mandarin dialect; therefore, the place names containing “Dian” gather in the Zhongyuan region, the central east of Mainland China.</p>
+<h3 id="Mountains-and-Plains"><a href="#Mountains-and-Plains" class="headerlink" title="Mountains and Plains"></a>Mountains and Plains</h3><p>“Shan(山)” means “mountain” in Chinese. The place names containing “Shan,” as the visualization suggests, appear more frequently in those mountainous terrains. The western part of China is also considered mountainous, but insufficient in geographic information in general. Still, we can observe that for most populated areas, “Shan” s gather in hills rather than plains. Notice the dense distribution of the hilly regions of Shandong, and the strip of dark areas of the North China Plain surrounding the mountains on the scatter plot.</p>
+<h3 id="Lakes-in-the-South"><a href="#Lakes-in-the-South" class="headerlink" title="Lakes in the South"></a>Lakes in the South</h3><p>“Hu(湖)” stands for “lake” in Mandarin Chinese. Lakes are more densely distributed in Southern China than the north; therefore, in the visualization, the southern part of China is more densely lit.</p>
+<h3 id="Tibetan-and-Minnan-Dialect"><a href="#Tibetan-and-Minnan-Dialect" class="headerlink" title="Tibetan and Minnan Dialect"></a>Tibetan and Minnan Dialect</h3><p>“Cuo(错)” stands for “lake,” too, but in Tibetan instead of Mandarin Chinese. That explains why this time, the lakes in Tibet are highlighted. There is a strange, unintentional aggregation of points on the southeast coastline of China, however. After investigation, we discovered that there is another Chinese word “Cuo(厝)” that spells identical to “Cuo(错),” which means “House” in the Minnan dialect of the Chinese language. Minnan dialect is widely spoken by inhabitants in the southeast coastline of China, and that thoroughly explains the result.</p>
+<h2 id="Summary-of-Clusters"><a href="#Summary-of-Clusters" class="headerlink" title="Summary of Clusters"></a>Summary of Clusters</h2><p>The writing system in East Asia is usually ideographic, which generates clear syllable boundaries in its place names. Some common spelling patterns, including “-eng,” “-ang” can be seen.</p>
+<p>The features in Southeast Asia and South Asia place names is somewhat similar to that of East Asia. However, the average word length is dramatically shorter because each ideograph represents one word. The “Syllable boundary” in East Asia place name words becomes whitespaces here.</p>
+<p>Place names in Sub-Saharan Africa are diverse in characteristics, making them harder to recognize. We can occasionally notice a European impact, especially the French ones, on their place names.</p>
+<p>Place names in West Europe typically demonstrate a low vowel-consonant ratio, which means the pronunciation sounds “harder.” Some common suffixes like “-burg / -bourg,” “-eaux” can be observed.</p>
+<p>Place names in East Europe are usually constructed by a single long word, which makes them relatively easier to be recognized. Some Slavic suffixes like “-sk” are commonly seen here. Place names from English-spoken countries (North America, Australia, New Zealand, and the UK) show features in the English language.</p>
+<p>Place names in Latin Region, including Latin America, Spain, and Portugal, are made up of relatively short words. Some common prefixes like “de,” “le,” “san” can be observed.</p>
+<p>Place names in the Arabic Cultural Region usually suggest some unique patterns, including “Al,” “Ah,” “-bad,” and “-j.”</p>
+<p>Place names in Oceania are diverse in characteristics and meanwhile short in collected data. This diversity makes them nearly impossible to be classified.</p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div>
+  <div id="toggle-dim-panel" class="floating-button inverta" onclick="togglePanel()">
+    <div id="toggle-dim-panel-icon">+</div>
+  </div>
+</div>
+
+<div class="post-dim-panel">
+  <div class="dim-inner">
+    <div onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');closePanel();" class="dim-inner-button hugo-h5">Back
+      To Top</div>
+    
+    <a href="/2019/06/21/Math-Equations-in-Hexo/" class="dim-inner-button hugo-h5 unstyled">Previous Post</a>
+    
+    
+    <a href="/2018/05/30/CSS-Pseudo-and-Touch-Devices/" class="dim-inner-button hugo-h5 unstyled">Next Post</a>
+    
+    <div onclick="whyBother(this)" class="dim-inner-button hugo-h5">Share</div>
+    <a href="/" class="dim-inner-button hugo-h5 unstyled">Take Me Home</a>
+  </div>
+</div>
+
+<script>
+
+  var dimPanelVisible = false
+
+  function whyBother(el) {
+    $(el).css("pointer-events", "none").css("text-decoration", "none").css("opacity", "0")
+    setTimeout(function () {
+      $(el).text("Why Bother?")
+      $(el).css("opacity", "0.2").css("font-style", "italic")
+    }, 1000)
+  };
+
+  function closePanel() {
+    $('.post-dim-panel').fadeOut()
+    $('#toggle-dim-panel-icon').css("transform", "initial")
+    $('html').removeClass('noscroll')
+    dimPanelVisible = false
+  };
+
+  function openPanel() {
+    $('.post-dim-panel').css("display", "flex").hide().fadeIn()
+    $('#toggle-dim-panel-icon').css("transform", "rotate(45deg)")
+    $('html').addClass('noscroll')
+    dimPanelVisible = true
+  }
+
+  function togglePanel() {
+    dimPanelVisible ? closePanel() : openPanel()
+  }
+
+</script>
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 Tzingtao Chow
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        
+          <li><a href="/">
+              Home
+            </a></li>
+          
+          <li><a href="/archives/">
+              Writings
+            </a></li>
+          
+          <li><a href="/portfolio/">
+              Portfolio
+            </a></li>
+          
+          <li><a href="/elsewhere/">
+              Elsewhere
+            </a></li>
+          
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+    
+
+<script src="/js/main.js"></script>
+
+<!-- scrollbar -->
+
+<link rel="stylesheet" href="/lib/overlayscrollbars/osb.min.css">
+
+<link rel="preload" href="/lib/overlayscrollbars/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/overlayscrollbars/theme.css"></noscript>
+
+<script src="/lib/overlayscrollbars/osb.min.js"></script>
+
+
+<script src="/js/scrollbar.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

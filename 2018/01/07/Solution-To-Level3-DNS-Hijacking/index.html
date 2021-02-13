@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#222222">
+    <meta name="description" content="Tzingtao Chow's personal website.">
+    <meta name="description" content="BACKGROUND前些日子，在地址栏中输入一个已失效的 URL 时，页面并不像被期待的那样返回 404 错误 &#x2F; 502 错误或「找不到对应的 IP 地址」，而是返回了 Level(3) 搜索引擎的推荐结果。           仅为示例，原页面包含了数页的搜索结果及广告。   在境内，发生 Level(3) 跳转的情况并不多见，但如果你的网络环境使用了科学上网代理，那么这一现象便仍然非常有可能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solution to Level3 DNS Hijacking on VPN Servers">
+<meta property="og:url" content="http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/index.html">
+<meta property="og:site_name" content="Ekki Múkk">
+<meta property="og:description" content="BACKGROUND前些日子，在地址栏中输入一个已失效的 URL 时，页面并不像被期待的那样返回 404 错误 &#x2F; 502 错误或「找不到对应的 IP 地址」，而是返回了 Level(3) 搜索引擎的推荐结果。           仅为示例，原页面包含了数页的搜索结果及广告。   在境内，发生 Level(3) 跳转的情况并不多见，但如果你的网络环境使用了科学上网代理，那么这一现象便仍然非常有可能">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/level3.png">
+<meta property="article:published_time" content="2018-01-07T11:47:54.000Z">
+<meta property="article:modified_time" content="2021-02-13T08:15:38.918Z">
+<meta property="article:author" content="Tzingtao Chow">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/level3.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-192x192.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Solution to Level3 DNS Hijacking on VPN Servers</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+
+<!-- jquery -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/global-fade-in.js" async></script>
+<body onload="document.body.style.opacity='1'" id="body" class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" style="display:none" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writings</a></li>
+         
+          <li><a href="/portfolio/">Portfolio</a></li>
+         
+          <li><a href="/elsewhere/">Elsewhere</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions" style="display:none">
+      <ul>
+        
+        <li><a class="icon" href="/2018/01/28/The-Lost-Community/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/08/02/Archived-Translations/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&text=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&title=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&is_video=false&description=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Solution to Level3 DNS Hijacking on VPN Servers&body=Check out this article: http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&title=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&title=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&title=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&title=Solution to Level3 DNS Hijacking on VPN Servers"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.tzingtao.com/2018/01/07/Solution-To-Level3-DNS-Hijacking/&name=Solution to Level3 DNS Hijacking on VPN Servers&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BACKGROUND"><span class="toc-number">1.</span> <span class="toc-text">BACKGROUND</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAUSE"><span class="toc-number">2.</span> <span class="toc-text">CAUSE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TACKLE"><span class="toc-number">3.</span> <span class="toc-text">TACKLE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reconfigure-dhclient-conf"><span class="toc-number">3.1.</span> <span class="toc-text">Reconfigure dhclient.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Write-protection-to-etc-resolv-conf"><span class="toc-number">3.2.</span> <span class="toc-text">Write protection to &#x2F;etc&#x2F;resolv.conf</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle hugo-h4" itemprop="name headline">
+        Solution to Level3 DNS Hijacking on VPN Servers
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tzingtao Chow</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-01-07T11:47:54.000Z" itemprop="datePublished">2018-01-07</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/OS/" rel="tag">OS</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>前些日子，在地址栏中输入一个已失效的 URL 时，页面并不像被期待的那样返回 404 错误 / 502 错误或「找不到对应的 IP 地址」，而是返回了 Level(3) 搜索引擎的推荐结果。</p>
+<figure>
+    <img src="/2018/01/07/Solution-To-Level3-DNS-Hijacking/level3.png" class="">
+    <figcaption>仅为示例，原页面包含了数页的搜索结果及广告。</figcaption>
+</figure>
+
+<p>在境内，发生 Level(3) 跳转的情况并不多见，但如果你的网络环境使用了<em>科学上网代理</em>，那么这一现象便仍然非常有可能发生。</p>
+<h2 id="CAUSE"><a href="#CAUSE" class="headerlink" title="CAUSE"></a>CAUSE</h2><p>显而易见，发出的网络请求被 Level(3) 劫持了。虽然吃相并没有那么不堪，但是和国内运营商的流量劫持终究是同种性质。虽然可以在页面右端的 Settings – Search Guide Settings 将搜索建议选项关闭，但我们希望从根源上解决这一问题。</p>
+<p><strong>URL 跳转的本质原因是使用了来自行为不端的公司提供的 DNS 服务器。</strong>在这里，作网络代理使用的 VPS 使用了来自 Level3 Communications 提供的 DNS 服务器：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Level 3 Communication DNS Servers</span></span><br><span class="line">4.2.2.1</span><br><span class="line">4.2.2.2</span><br><span class="line">4.2.2.3</span><br><span class="line">4.2.2.4</span><br><span class="line">4.2.2.5</span><br><span class="line">4.2.2.6</span><br></pre></td></tr></table></figure>
+<p>我们只需要在主机的配置中，将其替换为更加可靠的服务器即可：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Google Public DNS</span></span><br><span class="line">8.8.8.8</span><br><span class="line">8.8.4.4</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenDNS</span></span><br><span class="line">208.67.222.222</span><br><span class="line">208.67.220.220</span><br></pre></td></tr></table></figure>
+<h2 id="TACKLE"><a href="#TACKLE" class="headerlink" title="TACKLE"></a>TACKLE</h2><p>在 CentOS 6 中，需要对 /etc/resolv.conf 中的文件进行修改：将涉及到 Level 3 DNS Server 的地址删除并保存，如有需要，可以使用其它 DNS 服务器替换。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search localdomain</span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 74.82.42.42</span><br><span class="line">nameserver 4.2.2.1 # 删除本行，或者替代以 208.67.222.222</span><br><span class="line">nameserver 8.8.4.4</span><br></pre></td></tr></table></figure>
+<p>但故事并没有结束：<strong>当主机重启后，resolv.conf 被强制重写回 Level3 的 DNS 服务器。</strong>对此，有两种解决办法：</p>
+<h3 id="Reconfigure-dhclient-conf"><a href="#Reconfigure-dhclient-conf" class="headerlink" title="Reconfigure dhclient.conf"></a>Reconfigure dhclient.conf</h3><p>在 <code>interface</code> block 中加入这一行内容：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prepend domain-name-servers 8.8.4.4</span><br></pre></td></tr></table></figure>
+<p>通常能够解决。但有时 dhclient.conf 文件不存在，或是由 VPS Hosting 机构的脚本来控制的，无法被终端用户所修改。此时，我们暂且只能采用备用的、不那么优雅的解决方案：</p>
+<h3 id="Write-protection-to-etc-resolv-conf"><a href="#Write-protection-to-etc-resolv-conf" class="headerlink" title="Write protection to /etc/resolv.conf"></a>Write protection to /etc/resolv.conf</h3><p>在终端使用 <code>chattr</code> 命令进行写保护：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chattr +i /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+<p>这一行命令使得即便 root 用户也无法对 resolv.conf 进行重写。如果你的主机只用来作代理使用，那么进行这一强制更改通常是可接受的，并没有太大的问题。</p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div>
+  <div id="toggle-dim-panel" class="floating-button inverta" onclick="togglePanel()">
+    <div id="toggle-dim-panel-icon">+</div>
+  </div>
+</div>
+
+<div class="post-dim-panel">
+  <div class="dim-inner">
+    <div onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');closePanel();" class="dim-inner-button hugo-h5">Back
+      To Top</div>
+    
+    <a href="/2018/01/28/The-Lost-Community/" class="dim-inner-button hugo-h5 unstyled">Previous Post</a>
+    
+    
+    <a href="/2017/08/02/Archived-Translations/" class="dim-inner-button hugo-h5 unstyled">Next Post</a>
+    
+    <div onclick="whyBother(this)" class="dim-inner-button hugo-h5">Share</div>
+    <a href="/" class="dim-inner-button hugo-h5 unstyled">Take Me Home</a>
+  </div>
+</div>
+
+<script>
+
+  var dimPanelVisible = false
+
+  function whyBother(el) {
+    $(el).css("pointer-events", "none").css("text-decoration", "none").css("opacity", "0")
+    setTimeout(function () {
+      $(el).text("Why Bother?")
+      $(el).css("opacity", "0.2").css("font-style", "italic")
+    }, 1000)
+  };
+
+  function closePanel() {
+    $('.post-dim-panel').fadeOut()
+    $('#toggle-dim-panel-icon').css("transform", "initial")
+    $('html').removeClass('noscroll')
+    dimPanelVisible = false
+  };
+
+  function openPanel() {
+    $('.post-dim-panel').css("display", "flex").hide().fadeIn()
+    $('#toggle-dim-panel-icon').css("transform", "rotate(45deg)")
+    $('html').addClass('noscroll')
+    dimPanelVisible = true
+  }
+
+  function togglePanel() {
+    dimPanelVisible ? closePanel() : openPanel()
+  }
+
+</script>
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 Tzingtao Chow
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        
+          <li><a href="/">
+              Home
+            </a></li>
+          
+          <li><a href="/archives/">
+              Writings
+            </a></li>
+          
+          <li><a href="/portfolio/">
+              Portfolio
+            </a></li>
+          
+          <li><a href="/elsewhere/">
+              Elsewhere
+            </a></li>
+          
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+    
+
+<script src="/js/main.js"></script>
+
+<!-- scrollbar -->
+
+<link rel="stylesheet" href="/lib/overlayscrollbars/osb.min.css">
+
+<link rel="preload" href="/lib/overlayscrollbars/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/overlayscrollbars/theme.css"></noscript>
+
+<script src="/lib/overlayscrollbars/osb.min.js"></script>
+
+
+<script src="/js/scrollbar.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

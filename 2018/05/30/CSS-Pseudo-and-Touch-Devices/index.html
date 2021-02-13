@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#222222">
+    <meta name="description" content="Tzingtao Chow's personal website.">
+    <meta name="description" content="BACKGROUNDIf you’re familiar with CSS, you have probably used :hover pseudo-states. A typical scenario for this grammar is to signify state changes for clickable elements. For example, when we write:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Sticky Hover and Pseudo States">
+<meta property="og:url" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/index.html">
+<meta property="og:site_name" content="Ekki Múkk">
+<meta property="og:description" content="BACKGROUNDIf you’re familiar with CSS, you have probably used :hover pseudo-states. A typical scenario for this grammar is to signify state changes for clickable elements. For example, when we write:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/states1.png">
+<meta property="og:image" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/states2.png">
+<meta property="og:image" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/states3.png">
+<meta property="og:image" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/states4.png">
+<meta property="og:image" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/jd.png">
+<meta property="article:published_time" content="2018-05-30T14:56:27.000Z">
+<meta property="article:modified_time" content="2021-02-13T05:18:44.012Z">
+<meta property="article:author" content="Tzingtao Chow">
+<meta property="article:tag" content="HCI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/states1.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-192x192.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CSS Sticky Hover and Pseudo States</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+
+<!-- jquery -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/global-fade-in.js" async></script>
+<body onload="document.body.style.opacity='1'" id="body" class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" style="display:none" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writings</a></li>
+         
+          <li><a href="/portfolio/">Portfolio</a></li>
+         
+          <li><a href="/elsewhere/">Elsewhere</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions" style="display:none">
+      <ul>
+        
+        <li><a class="icon" href="/2019/06/16/Placename-Insights/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/03/11/Universal-Approximation-Theorem/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&text=CSS Sticky Hover and Pseudo States"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&title=CSS Sticky Hover and Pseudo States"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&is_video=false&description=CSS Sticky Hover and Pseudo States"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS Sticky Hover and Pseudo States&body=Check out this article: http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&title=CSS Sticky Hover and Pseudo States"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&title=CSS Sticky Hover and Pseudo States"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&title=CSS Sticky Hover and Pseudo States"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&title=CSS Sticky Hover and Pseudo States"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.tzingtao.com/2018/05/30/CSS-Pseudo-and-Touch-Devices/&name=CSS Sticky Hover and Pseudo States&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BACKGROUND"><span class="toc-number">1.</span> <span class="toc-text">BACKGROUND</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STICKY-HOVER"><span class="toc-number">2.</span> <span class="toc-text">STICKY HOVER</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STYLES-COMPLETENESS"><span class="toc-number">3.</span> <span class="toc-text">STYLES COMPLETENESS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#W3C-STANDARD"><span class="toc-number">3.1.</span> <span class="toc-text">W3C STANDARD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CONVENTION"><span class="toc-number">3.2.</span> <span class="toc-text">CONVENTION</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-THIRD-OPTION"><span class="toc-number">3.3.</span> <span class="toc-text">A THIRD OPTION?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MY-CHOICE"><span class="toc-number">4.</span> <span class="toc-text">MY CHOICE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CONCLUSION"><span class="toc-number">5.</span> <span class="toc-text">CONCLUSION</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle hugo-h4" itemprop="name headline">
+        CSS Sticky Hover and Pseudo States
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tzingtao Chow</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-05-30T14:56:27.000Z" itemprop="datePublished">2018-05-30</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/HCI/" rel="tag">HCI</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>If you’re familiar with CSS, you have probably used <code>:hover</code> pseudo-states. A typical scenario for this grammar is to signify state changes for clickable elements.</p>
+<p>For example, when we write:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Without other interferences, this will fade the button opacity to 0.9 when the user’s mouse is hovering over it.</p>
+<p>Proper use of the <code>:hover</code> pseudo-state is important. It conveys information to users on which element is clickable, and which is not. <code>cursor: pointer</code> is often paired with <code>:hover</code> to perform richer and more precise feedback for user interactions.</p>
+<p><strong>The problem is, <code>:hover</code> is designed exclusively for desktop devices. Since 2007, smartphones and other touch devices became increasingly popular. Obviously, there are no corresponding actions for mouse hovering on touch devices.</strong></p>
+<p>Despite that, most of the browsers for touch devices implemented support for the hover state, but instead of mouse hovering, the trigger became a <em>touch start</em> event.</p>
+<p>To describe the behavior logic concretely:</p>
+<blockquote>
+<p>When your finger presses on an element, both of its <code>:hover</code> and <code>:active</code> pseudo-states are triggered. When the finger leaves the screen, the <code>:active</code> state is removed, whereas the <code>:hover</code> state stays until another element is pressed.</p>
+</blockquote>
+<p>Here, the “stays until another element is pressed” behavior looks somewhat identical to another pseudo-state <code>:focus</code>, which also loses its active status on another touch event start. And this period of stay is the topic of this article - <strong>Sticky Hover</strong>.</p>
+<h2 id="STICKY-HOVER"><a href="#STICKY-HOVER" class="headerlink" title="STICKY HOVER"></a>STICKY HOVER</h2><p><strong>There may be personal feelings, but sticky hover can be anathema to user experience.</strong></p>
+<p>When we tap on a button and then lift our fingers, we always hope that the action is instant and clear-cut. Such a sticky style, however, gives the impression that the action has not been done yet. The active style persists on the screen and continues to disturb users’ visual experiences.</p>
+<p>The common feeling of “web apps are inferior to native apps in terms of user experience” can be partially ascribed to sticky hovers. On StackOverflow, there have also been <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/23885255/how-to-remove-ignore-hover-css-style-on-touch-devices">discussions</a> on how to disable this specific behavior.</p>
+<p>In fact, when W3C developed relevant web standards, it did not show any positive attitude of such interaction logic. The following is a definitive explanation of the CSS dynamic pseudo-classes in <a target="_blank" rel="noopener" href="https://www.w3.org/TR/selectors-3/#sel-active">the standard</a> drawn by W3C:</p>
+<blockquote>
+<p>Interactive user agents sometimes change the rendering in response to user actions. Selectors provides three pseudo-classes for the selection of an element the user is acting on.</p>
+<p>The :hover pseudo-class applies while the user designates an element with a pointing device, but does not necessarily activate it. For example, a visual user agent could apply this pseudo-class when the cursor (mouse pointer) hovers over a box generated by the element. User agents that do not support interactive media do not have to support this pseudo-class. <strong>Some conforming user agents that support interactive media may not be able to support this pseudo-class (e.g., a pen device that does not detect hovering).</strong></p>
+<p>The :active pseudo-class applies while an element is being activated by the user. For example, between the times the user presses the mouse button and releases it. On systems with more than one mouse button, :active applies only to the primary or primary activation button (typically the “left” mouse button), and any aliases thereof.</p>
+<p>The :focus pseudo-class applies while an element has the focus (accepts keyboard or mouse events, or other forms of input).</p>
+</blockquote>
+<p>Notice that when suggesting the trigger for the <code>:hover</code> pseudo-state, W3C explicitly pointed out that <strong>user agents that do not support hovering interaction (e.g., a pen device that does not detect hovering) do not have to support this pseudo-class as well</strong>. Here, touch devices are essentially the same as the pen device example. Therefore, a conforming user agent should not implement the trigger of <code>:hover</code> pseudo-state if they comply with the standard.</p>
+<p>But why do all touch browser implementation vendors violate this standard in the same way?</p>
+<p>The one reason that I can come up with is <em>style completeness</em> in all its possible behaviors.</p>
+<h2 id="STYLES-COMPLETENESS"><a href="#STYLES-COMPLETENESS" class="headerlink" title="STYLES COMPLETENESS"></a>STYLES COMPLETENESS</h2><p>Let’s use the button introduced earlier in the article. Suppose it has three states: the normal state, the <code>:hover</code> state and the <code>:active</code> state, each with a different style declaration.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Apparently, in a traditional desktop device controlled by mouse, the button can display three distinctive style combinations, i.e., the normal style, the style with 0.9 opacity and with 0.9 opacity plus a scaling transform:</p>
+<figure>
+    <img src="/2018/05/30/CSS-Pseudo-and-Touch-Devices/states1.png" class="">
+    <figcaption>
+Figure 1. The interaction logic on a traditional device.</figcaption>
+</figure>
+These three style combinations are all the *expected styles* in this particular software development requirements. That is, **the developer wants all these three appearances *can* / *have a chance to* be activated, and we do not need any other possible combinations.**
+
+<p>As shown in figure 1, on a traditional device, the stage of these three appearances can be separated by interactive behaviors including <code>mouseOver</code>, <code>mouseDown</code>, <code>mouseUp</code>, and <code>mouseOut</code>.</p>
+<h3 id="W3C-STANDARD"><a href="#W3C-STANDARD" class="headerlink" title="W3C STANDARD"></a>W3C STANDARD</h3><p>On a touch device, if you comply with the W3C standard which discourages you from implementing support for a <code>:hover</code> trigger, then the number of possible style combinations would be reduced to 2, losing its original style completeness:</p>
+<figure>
+    <img src="/2018/05/30/CSS-Pseudo-and-Touch-Devices/states2.png" class="">
+    <figcaption>Figure 2. The interaction logic on a touch device under the W3C standard.</figcaption>
+</figure>
+
+<p>In this case, the problem only affects the completeness of <em>visual</em> styles - we can’t feel a translucent button anymore. In other cases, however, <code>:hover</code> is sometimes connected to necessary <em>functional</em> triggers. For instance:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> <span class="selector-class">.menu</span> &#123;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">nav</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.menu</span> &#123;</span><br><span class="line">  <span class="attribute">visibility</span>: visible;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Let aside whether this implementation is a good UX design pattern, it’s an undeniable truth that many websites currently rely on such hovering triggers for things to work: You have to hover your mouse on someplace to expand the menu.</p>
+<p>If <code>:hover</code> pseudo-state is not implemented or supported by the browsers, conceivably, they will lose market shares. At times when touch screens are relatively new technology, the most urgent requirement for them is to ensure as many sites to function correctly on their web browser as possible.</p>
+<p>The other problem in this model is some <em>unexpected</em> appearances might happen - the combination where the <code>:active</code> state is triggered but not the <code>:hover</code> state. Either on a traditional device or in the web developer’s initial expectation, you can’t find a magnified button with opacity set to 100%. Here, you will.</p>
+<p>This is a minor problem, but it sure may still cause potential inconveniences. Besides, unexpected behaviors should always be regarded as dangerous in computer science.</p>
+<h3 id="CONVENTION"><a href="#CONVENTION" class="headerlink" title="CONVENTION"></a>CONVENTION</h3><p>Due to the issues in the W3C standard, an unorthodox interaction logic appeared and persisted, becoming the status quo:</p>
+<figure>
+    <img src="/2018/05/30/CSS-Pseudo-and-Touch-Devices/states3.png" class="">
+    <figcaption>Figure 3. The current interaction logic convention on touch devices.</figcaption>
+</figure>
+
+
+<p>In this scheme, all three style combinations are preserved, ensuring the style completeness. It’s a safe solution, without a doubt, but it’s nonetheless ugly and disturbing. This scheme is the source cause of the sticky hover problem that we’re discussing today. Is there any other option?</p>
+<h3 id="A-THIRD-OPTION"><a href="#A-THIRD-OPTION" class="headerlink" title="A THIRD OPTION?"></a>A THIRD OPTION?</h3><p>Indeed, apart from all the options mentioned above, there is another:</p>
+<figure>
+    <img src="/2018/05/30/CSS-Pseudo-and-Touch-Devices/states4.png" class="">
+    <figcaption>Figure 4. Another option.</figcaption>
+</figure>
+
+<p>Notice there is only one difference from the W3C standard. Here, the <code>:hover</code> and <code>:active</code> states are always simultaneously triggered and deactivated. There is also only one difference from the current convention - the stage that causes the sticky hover effect is removed.</p>
+<p>It mitigates the visual discomfort and eliminates unexpected styles, however, it still lacks style completeness. You can’t get the <code>:hover</code> style activated solely, and it’s difficult to retain the <code>:hover</code> state.</p>
+<p>So, what’s good about this solution?</p>
+<h2 id="MY-CHOICE"><a href="#MY-CHOICE" class="headerlink" title="MY CHOICE"></a>MY CHOICE</h2><p>The third option is the solution that I use in my development.</p>
+<p>One thing needs to be clear. The optimal solution for the browsers’ implementation is not necessarily the same as the optimal solution for a modern web app developer. From the perspective of looking after the whole existing web library, coming to this solution is not better than the status quo - It would break a lot of websites. On the other hand, if you are working on a new project, by adopting certain UX principles and guidelines, the negative influence can be circumvented.</p>
+<p><strong>One principle that I believe in is the interactive design pattern of hovering nav-menu mentioned above should be avoided.</strong> Although it used to prevail, I would frown this pattern.</p>
+<p>The most common hovering menu activation is the Start Menu on some legacy Windows versions. To enter the next level of the menu, you need to continuously hover your mouse over the options in this level menu and carefully pan over. If you use the trackpad, it’s even more painful to move cautiously without accidentally leaving the track.</p>
+<p><strong>This interactive pattern was designed to save a single click. Yet, history tells us that “carefully staying on the hovering track” costs significantly more than a single click.</strong> If the hovering track area were broad enough, then the situation probably wouldn’t be so bad. But such a pattern often accompanies limited design space - after all, if there were abundant space, why don’t designers just put all menus simultaneously visible on the screen?</p>
+<p>Though this pattern has seen a decline in usage, some UX designers have been working hard trying to improve it. On the home page of <a target="_blank" rel="noopener" href="http://jd.com/">JD.com</a>, the second-largest e-commerce site in Mainland China, we can still observe the presence of such a pattern. To offset its defects, however, a large amount of JavaScript code was written to predict the user’s next move by analyzing the mouse trace. As seen in figure 5, when a user straightly moves their mouse from the top-level menu to the secondary menu on the right, although the mouse left the track during this movement, the content on the right would not unstably flash.</p>
+<figure>
+    <img src="/2018/05/30/CSS-Pseudo-and-Touch-Devices/jd.png" class="">
+    <figcaption>Figure 5. The "improved" hovering activated menu pattern used on JD.com.</figcaption>
+</figure>
+
+<p>Despite all the efforts, no solution for this pattern could be both simple, elegant, and precise. No matter how complex and sophisticated the prediction algorithm is designed, misjudgment can happen.</p>
+<p>The best use of <code>:hover</code> pseudo-states, from a modern web design view that fits both desktop and touch devices, should only be the <em>style</em> transition that provides proper visual feedback instead of doing anything <em>functional</em> imperative. Relying on hovering to trigger a menu itself probably would not be a good idea.</p>
+<p>Other functions that rely on hovering states, e.g., tooltips, are preserved and can be appropriately activated. A long press would do the work. But notice that tooltips are not ideal interactive components on mobile devices as well.</p>
+<h2 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h2><p>In web development, The historical burden that a browser carries is often onerous. Bad or incorrect designs in legacy HTML, CSS, and JavaScript standards must be preserved to make sure old sites function properly. <code>border-box</code> in CSS and <code>typeof null</code> in JavaScript are all good examples for that. We should, therefore, understand the compromises that they had to make.</p>
+<p>The developers, on the other hand, should actively seek new possibilities that may provide better solutions. It’s important for us to realize that we don’t have to always “keep in sync” with the browser specifications. </p>
+<blockquote>
+<p>It’s like we’ve forgotten who we are, Donald. <br />Explorers. Pioneers. Not caretakers.</p>
+</blockquote>
+<p>—— Joseph A. Cooper, <em>Interstellar</em>, 2014</p>
+
+  </div>
+</article>
+
+
+
+
+        
+          <div>
+  <div id="toggle-dim-panel" class="floating-button inverta" onclick="togglePanel()">
+    <div id="toggle-dim-panel-icon">+</div>
+  </div>
+</div>
+
+<div class="post-dim-panel">
+  <div class="dim-inner">
+    <div onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');closePanel();" class="dim-inner-button hugo-h5">Back
+      To Top</div>
+    
+    <a href="/2019/06/16/Placename-Insights/" class="dim-inner-button hugo-h5 unstyled">Previous Post</a>
+    
+    
+    <a href="/2018/03/11/Universal-Approximation-Theorem/" class="dim-inner-button hugo-h5 unstyled">Next Post</a>
+    
+    <div onclick="whyBother(this)" class="dim-inner-button hugo-h5">Share</div>
+    <a href="/" class="dim-inner-button hugo-h5 unstyled">Take Me Home</a>
+  </div>
+</div>
+
+<script>
+
+  var dimPanelVisible = false
+
+  function whyBother(el) {
+    $(el).css("pointer-events", "none").css("text-decoration", "none").css("opacity", "0")
+    setTimeout(function () {
+      $(el).text("Why Bother?")
+      $(el).css("opacity", "0.2").css("font-style", "italic")
+    }, 1000)
+  };
+
+  function closePanel() {
+    $('.post-dim-panel').fadeOut()
+    $('#toggle-dim-panel-icon').css("transform", "initial")
+    $('html').removeClass('noscroll')
+    dimPanelVisible = false
+  };
+
+  function openPanel() {
+    $('.post-dim-panel').css("display", "flex").hide().fadeIn()
+    $('#toggle-dim-panel-icon').css("transform", "rotate(45deg)")
+    $('html').addClass('noscroll')
+    dimPanelVisible = true
+  }
+
+  function togglePanel() {
+    dimPanelVisible ? closePanel() : openPanel()
+  }
+
+</script>
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 Tzingtao Chow
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        
+          <li><a href="/">
+              Home
+            </a></li>
+          
+          <li><a href="/archives/">
+              Writings
+            </a></li>
+          
+          <li><a href="/portfolio/">
+              Portfolio
+            </a></li>
+          
+          <li><a href="/elsewhere/">
+              Elsewhere
+            </a></li>
+          
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+    
+
+<script src="/js/main.js"></script>
+
+<!-- scrollbar -->
+
+<link rel="stylesheet" href="/lib/overlayscrollbars/osb.min.css">
+
+<link rel="preload" href="/lib/overlayscrollbars/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/overlayscrollbars/theme.css"></noscript>
+
+<script src="/lib/overlayscrollbars/osb.min.js"></script>
+
+
+<script src="/js/scrollbar.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
